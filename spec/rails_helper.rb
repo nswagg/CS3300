@@ -62,6 +62,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
+#This enables us to use SimpleCoverage, using our test cases to generate the GUI
+#SimpleCov will borrow from our bin, db, and spec files, copying the framework for
+#testing
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
