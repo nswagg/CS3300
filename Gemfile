@@ -73,3 +73,5 @@ group :development, :test do
 end
 
 gem 'simplecov', require: false #Installs simplecov to :test group
+
+gem 'devise'
