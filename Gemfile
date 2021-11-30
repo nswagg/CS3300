@@ -75,3 +75,5 @@ end
 gem 'simplecov', require: false #Installs simplecov to :test group
 
 gem 'devise'
+
+gem 'factory_bot_rails'
