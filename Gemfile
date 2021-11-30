@@ -72,7 +72,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
 end
 
-gem 'simplecov', require: false #Installs simplecov to :test group
+gem 'simplecov', require: false, group: :test #Installs simplecov to :test group
 
 gem 'devise'
 
