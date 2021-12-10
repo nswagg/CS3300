@@ -7,6 +7,20 @@ require 'rails_helper'
 =end
 
 RSpec.feature "Projects", type: :feature do
+
+  context "Login" do
+    scenario "should sign up" do
+      visit root_path
+      click_link 'Sign up'
+      within("form") do
+        fill_in "Email", with: "testing@test.com"
+        fill_in "Password", with: "123456"
+        fill_in "Password confirmation", with: "123456"
+        click_button "sign up"
+      end
+      expect(page).to have_content("Welcome! You have signed up successfully.")
+    end
+
   #Using the framework defined by the Project.rb,
   #we create a new sample project
   context "Create new project" do
@@ -39,6 +53,8 @@ RSpec.feature "Projects", type: :feature do
     #creates a new project for testing
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
+      user = FactoryBot.create(:user)
+      login_as(user)
       visit edit_project_path(project) #Actually pulls the project from the database
     end
 
@@ -66,6 +82,8 @@ RSpec.feature "Projects", type: :feature do
     #Creates a new project for testing
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
+      user = FactoryBot.create(:user)
+      login_as(user)
       visit projects_path #pulls route and shows details of a project
       click_link "Destroy"
       expect(page).to have_content("Project was successfully destroyed")
