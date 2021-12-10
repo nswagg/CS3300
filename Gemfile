@@ -73,3 +73,6 @@ group :development, :test do
 end
 
 gem 'simplecov', require: false #Installs simplecov to :test group
+
+gem 'bootstrap', '~> 4.6.1'
+gem 'jquery-rails'
