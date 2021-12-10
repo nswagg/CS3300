@@ -11,6 +11,8 @@ RSpec.feature "Projects", type: :feature do
   #we create a new sample project
   context "Create new project" do
     before(:each) do
+      user = FactoryBot.create(:user)
+      login_as(user)
       visit new_project_path #Visits route to create new item
       within("form") do
         fill_in "Title", with: "Test title" #Fills the title dialogue with "Test Title"

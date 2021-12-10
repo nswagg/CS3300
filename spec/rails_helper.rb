@@ -7,8 +7,20 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
 
+# Add additional requires below this line. Rails is not loaded until this point!
+require 'devise'
+require_relative 'support/controller_macros'
+
+#This enables us to use SimpleCoverage, using our test cases to generate the GUI
+#SimpleCov will borrow from our bin, db, and spec files, copying the framework for
+#testing
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/spec/' # for rspec
+  
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -24,9 +36,6 @@ require 'rspec/rails'
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
-require 'devise'
-require_relative 'support/controller_macros'
-
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 
@@ -39,6 +48,11 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::IntegrationHelpers, :type => :feature
+  config.include FactoryBot::Syntax::Methods
+  config.extend ControllerMacros, :type => :controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -65,21 +79,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # config.include Devise::test::IntegrationHelpers, :type => :feature
-  config.include Devise::Test::ControllerHelpers, :type => :controller
-  config.include FactoryBot::Syntax::Methods
-  config.extend ControllerMacros, :type => :controller
 end
 
-
-
-#This enables us to use SimpleCoverage, using our test cases to generate the GUI
-#SimpleCov will borrow from our bin, db, and spec files, copying the framework for
-#testing
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/bin/'
-  add_filter '/db/'
-  add_filter '/spec/' # for rspec
 end
 
