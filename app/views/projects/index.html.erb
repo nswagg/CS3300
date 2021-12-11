@@ -18,7 +18,11 @@
         <tr>
           <td><%= project.title %></td>
           <td><%= project.description %></td>
-          <td> --- </td>
+          <td class="text-center"> 
+          <%= link_to "Show", project_path(project), class: 'label label-info'%>
+          <%= link_to "Edit", edit_project_path(project), class: 'label label-success'%>
+          <%= link_to "Delete", @project, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>
