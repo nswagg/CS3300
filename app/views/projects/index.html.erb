@@ -1,8 +1,26 @@
-<div>
-  <h1>Projects</h1>
-  <br>
-  <% @projects.each do |project| %>
-    <spam><%= project.title %></span>
-    <p><%= project.description %></p>
-  <% end %>
+<div class="container">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <h4><span class="label label-primary">Project portfolio for existing projects.</span></h4>
+  </div>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.description %></td>
+          <td> --- </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
