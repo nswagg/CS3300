@@ -24,7 +24,14 @@
           <%= link_to "Delete", @project, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
           </td>
         </tr>
+        
       <% end %>
+      
     </tbody>
+    
   </table>
+  <div class="text-right">
+      <%= link_to "Create New Project", new_project_path, class: 'btn btn-success btn-lg' %>
+    </div>
 </div>
+

@@ -2,23 +2,20 @@
 
 <div class="container">
   <div class="jumbotron">
+    <h3>Project Title:</h3>
     <h1><%= @project.title %></h1>
-    <p>
-      This is an example of a posts created with Ruby on Rails. We are using Bootstrap to beautify the web application and learn how to add some styles to our views.
-    </p>
     <span class="label label-primary"> Last update <%= @project.updated_at.strftime("%b %d, %Y") %></span>
   </div>
 </div>
 <div class="container">
+<h3>Description:</h3>
   <div class="panel panel-default">
     <div class="panel-body">
       <p>
-        <%= @project.description %>
-        ...
+        <%=@project.description %>
       </p>
     </div>
   </div>
+  <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'Back', projects_path, class: 'btn btn-primary btn-sm' %>
 </div>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
