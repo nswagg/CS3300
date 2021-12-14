@@ -72,12 +72,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
 end
 
-gem 'simplecov', require: false, group: :test #Installs simplecov to :test group
+gem 'simplecov', require: false #Installs simplecov to :test group
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'bootstrap', '~> 4.6.1'
+gem 'jquery-rails'
 
 gem 'devise'
 
 gem 'factory_bot_rails'
-
-gem 'bootstrap', '~> 4.6.1'
-
-gem 'jquery-rails'
