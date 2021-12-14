@@ -1,3 +1,4 @@
+<body style="background-color:#B2EBF2">
 <div class="container">
   <div class="page-header">
     <h1>Projects</h1>
@@ -19,9 +20,9 @@
           <td><%= project.title %></td>
           <td><%= project.description %></td>
           <td class="text-center"> 
-          <%= link_to "Show", project_path(project), class: 'label label-info'%>
+          <%= link_to "Show", project_path(project), class: 'label label-primary'%>
           <%= link_to "Edit", edit_project_path(project), class: 'label label-success'%>
-          <%= link_to "Delete", @project, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+          <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'label label-danger' %>
           </td>
         </tr>
         
@@ -35,3 +36,4 @@
     </div>
 </div>
 
+</body>
