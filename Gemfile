@@ -56,6 +56,8 @@ group :development do
 end
 
 group :test do
+  # Adding support for factories
+  gem 'factory_bot_rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
@@ -79,3 +81,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.6.1'
 gem 'jquery-rails'
+
+# Devise
+gem 'devise'

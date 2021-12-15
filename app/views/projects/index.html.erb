@@ -2,7 +2,7 @@
 <div class="container">
   <div class="page-header">
     <h1>Projects</h1>
-    <h4><span class="label label-primary">Project portfolio for existing projects.</span></h4>
+    <h4><span class="label label-primary">Project portfolio for existing projects created by the author: Nick Waggoner using the Ruby on Rails with MVC framework.</span></h4>
   </div>
 </div>
 <div class="container">
@@ -22,7 +22,7 @@
           <td class="text-center"> 
           <%= link_to "Show", project_path(project), class: 'label label-primary'%>
           <%= link_to "Edit", edit_project_path(project), class: 'label label-success'%>
-          <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'label label-danger' %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'label label-danger' %>
           </td>
         </tr>
         
