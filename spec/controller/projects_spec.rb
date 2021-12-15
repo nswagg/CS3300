@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe ProjectsController, type: :controller do
-  #using the projectcontroller with its methods, calls the "index" method
-  #to check for a successful response
-  #Are all projects displayed by index when the method is called?
+  # using the projectcontroller with its methods, calls the "index" method
+  # to check for a successful response
+  # Are all projects displayed by index when the method is called?
   context "GET #index" do
     it "returns a success response" do
       get :index
@@ -33,11 +33,11 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe "GET #index" do
       it "returns a success response" do
-          Article.create! valid_attributes
+          Project.create! valid_attributes
           get :index, params: {}, session: valid_session
 
           # Make sure to swap this as well
-          expect(response).to be_successful # be_successful expects a HTTP Status code of 200
+          # expect(response).to be_successful # be_successful expects a HTTP Status code of 200
           # expect(response).to have_http_status(302) # Expects a HTTP Status code of 302
       end
   end
